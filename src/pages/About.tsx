@@ -1,7 +1,6 @@
-
 import React from "react";
 import { motion } from "framer-motion";
-import { FileText, UserPlus, Link as LinkIcon, HospitalSquare, Shield, Check } from "lucide-react";
+import { FileText, UserPlus, Link as LinkIcon, Hospital, Shield, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface TimelineItemProps {
@@ -20,19 +19,16 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ icon, title, description, s
       transition={{ duration: 0.5, delay: step * 0.1 }}
       className="flex relative"
     >
-      {/* Timeline line */}
       {step < 5 && (
         <div className="absolute left-7 top-10 w-0.5 h-full bg-gradient-to-b from-spectrum-purple to-transparent"></div>
       )}
       
-      {/* Icon */}
       <div className="z-10 flex-shrink-0">
         <div className="h-14 w-14 rounded-full bg-spectrum-purple/10 flex items-center justify-center border border-spectrum-purple/20">
           {icon}
         </div>
       </div>
       
-      {/* Content */}
       <div className="ml-6 pb-16">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-gray-600 dark:text-gray-300">{description}</p>
@@ -64,7 +60,7 @@ const About = () => {
       description: "Both donor and recipient confirm the match via digital signatures on the blockchain, creating a binding agreement that ensures transparency and prevents fraud."
     },
     {
-      icon: <HospitalSquare size={24} className="text-spectrum-purple" />,
+      icon: <Hospital size={24} className="text-spectrum-purple" />,
       title: "Hospital Notification",
       description: "Verified medical facilities are notified of the match and given secure access to relevant medical information. The transfer process begins with hospital oversight."
     }
@@ -87,7 +83,6 @@ const About = () => {
           </p>
         </motion.div>
         
-        {/* Timeline */}
         <div className="mt-16 pl-4">
           {timelineItems.map((item, index) => (
             <TimelineItem
@@ -100,7 +95,6 @@ const About = () => {
           ))}
         </div>
         
-        {/* Benefits Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -155,7 +149,7 @@ const About = () => {
               
               <div className="flex">
                 <div className="flex-shrink-0 h-12 w-12 rounded-full bg-spectrum-pink/10 flex items-center justify-center">
-                  <HospitalSquare size={24} className="text-spectrum-pink" />
+                  <Hospital size={24} className="text-spectrum-pink" />
                 </div>
                 <div className="ml-4">
                   <h3 className="text-xl font-semibold mb-2">Global Access</h3>
@@ -169,7 +163,6 @@ const About = () => {
           </div>
         </motion.div>
         
-        {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
