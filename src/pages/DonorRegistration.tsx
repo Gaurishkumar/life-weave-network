@@ -85,8 +85,11 @@ const DonorRegistration = () => {
   };
 
   return (
-    <div className="py-20 px-6">
-      <div className="max-w-3xl mx-auto">
+    <div className="relative py-20 px-6 overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-spectrum-purple/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-tr from-spectrum-blue/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -104,7 +107,7 @@ const DonorRegistration = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="glass-card mt-10 p-8"
+          className="glass-card mt-10 p-8 shadow-xl backdrop-blur-xl bg-white/10 border border-white/20"
         >
           {submitState === "success" ? (
             <div className="text-center py-10">
@@ -112,15 +115,15 @@ const DonorRegistration = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                className="mx-auto w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6"
+                className="mx-auto w-20 h-20 bg-gradient-to-r from-green-400 to-green-500 dark:from-green-600 dark:to-green-700 rounded-full flex items-center justify-center mb-6 shadow-lg"
               >
-                <CheckCircle2 className="w-10 h-10 text-green-500" />
+                <CheckCircle2 className="w-10 h-10 text-white" />
               </motion.div>
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-gradient">
                 Registration Successful!
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Thank you for registering as a donor. Your information has been saved securely.
+                Thank you for registering as a donor. Your information has been saved securely on the blockchain.
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 The smart contract consent window will appear shortly.
@@ -132,11 +135,11 @@ const DonorRegistration = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                className="mx-auto w-20 h-20 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-6"
+                className="mx-auto w-20 h-20 bg-gradient-to-r from-red-400 to-red-500 dark:from-red-600 dark:to-red-700 rounded-full flex items-center justify-center mb-6 shadow-lg"
               >
-                <AlertCircle className="w-10 h-10 text-red-500" />
+                <AlertCircle className="w-10 h-10 text-white" />
               </motion.div>
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-gradient">
                 Registration Failed
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
@@ -154,16 +157,16 @@ const DonorRegistration = () => {
               <div className="space-y-6">
                 {/* Connect Wallet Button */}
                 <div className="mb-8">
-                  <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg mb-4">
+                  <div className="bg-gray-50/30 dark:bg-gray-800/30 p-6 rounded-lg mb-4 backdrop-blur-sm border border-white/20 shadow-md">
                     {walletConnected ? (
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                          <div className="h-8 w-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
-                            <CheckCircle2 size={16} className="text-green-500" />
+                          <div className="h-10 w-10 bg-gradient-to-r from-green-400 to-green-500 dark:from-green-600 dark:to-green-700 rounded-full flex items-center justify-center shadow-md">
+                            <CheckCircle2 size={20} className="text-white" />
                           </div>
-                          <span className="ml-2 text-gray-700 dark:text-gray-300">Wallet Connected</span>
+                          <span className="ml-3 text-gray-700 dark:text-gray-300 font-medium">Wallet Connected</span>
                         </div>
-                        <div className="text-sm text-gray-500">
+                        <div className="text-sm text-gray-500 bg-gray-100 dark:bg-gray-700 py-2 px-3 rounded-md font-mono">
                           {`${walletAddress.substring(0, 6)}...${walletAddress.substring(38)}`}
                         </div>
                       </div>
@@ -171,9 +174,9 @@ const DonorRegistration = () => {
                       <button
                         type="button"
                         onClick={connectWallet}
-                        className="w-full flex items-center justify-center space-x-2 bg-spectrum-blue hover:bg-spectrum-darkBlue text-white font-medium py-3 px-4 rounded-md transition-all duration-200"
+                        className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-spectrum-blue to-spectrum-purple hover:from-spectrum-darkBlue hover:to-spectrum-darkPurple text-white font-medium py-3 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
                       >
-                        <Wallet size={18} />
+                        <Wallet size={20} />
                         <span>Connect MetaMask</span>
                       </button>
                     )}
@@ -191,7 +194,7 @@ const DonorRegistration = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="input-field"
+                    className="input-field focus:ring-spectrum-purple focus:border-spectrum-purple"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -209,7 +212,7 @@ const DonorRegistration = () => {
                     onChange={handleChange}
                     min="18"
                     max="80"
-                    className="input-field"
+                    className="input-field focus:ring-spectrum-purple focus:border-spectrum-purple"
                     placeholder="Enter your age"
                   />
                 </div>
@@ -224,7 +227,7 @@ const DonorRegistration = () => {
                     name="bloodGroup"
                     value={formData.bloodGroup}
                     onChange={handleChange}
-                    className="input-field"
+                    className="input-field focus:ring-spectrum-purple focus:border-spectrum-purple"
                   >
                     <option value="">Select blood group</option>
                     {bloodGroups.map(group => (
@@ -238,17 +241,26 @@ const DonorRegistration = () => {
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Organs for Donation
                   </label>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {organsList.map(organ => (
-                      <div key={organ} className="flex items-center">
+                      <div 
+                        key={organ} 
+                        onClick={() => handleOrganToggle(organ)}
+                        className={`
+                          flex items-center p-3 rounded-lg cursor-pointer transition-all duration-300
+                          ${formData.organs.includes(organ) 
+                            ? 'bg-gradient-to-r from-spectrum-purple/20 to-spectrum-blue/20 border border-white/30 shadow-md' 
+                            : 'bg-gray-50/30 dark:bg-gray-800/30 border border-gray-200/30 dark:border-gray-700/30'}
+                        `}
+                      >
                         <input
                           type="checkbox"
                           id={organ}
                           checked={formData.organs.includes(organ)}
-                          onChange={() => handleOrganToggle(organ)}
+                          onChange={() => {}}
                           className="w-4 h-4 text-spectrum-purple bg-gray-100 border-gray-300 rounded focus:ring-spectrum-purple"
                         />
-                        <label htmlFor={organ} className="ml-2 text-sm text-gray-700 dark:text-gray-300">
+                        <label htmlFor={organ} className="ml-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer w-full">
                           {organ}
                         </label>
                       </div>
@@ -267,16 +279,16 @@ const DonorRegistration = () => {
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
-                    className="input-field"
+                    className="input-field focus:ring-spectrum-purple focus:border-spectrum-purple"
                     placeholder="Enter your city"
                   />
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-4">
+                <div className="pt-6">
                   <button
                     type="submit"
-                    className="btn-primary w-full"
+                    className="w-full bg-gradient-to-r from-spectrum-purple to-spectrum-blue hover:from-spectrum-darkPurple hover:to-spectrum-darkBlue text-white font-medium py-3 px-6 rounded-md transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0"
                   >
                     Register as Donor
                   </button>

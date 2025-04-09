@@ -76,7 +76,7 @@ const Home = () => {
       >
         <div className="max-w-6xl mx-auto">
           <h2 className="section-title text-center text-gradient">
-            Why Choose SPECTRUM?
+            Why Choose ChainMed?
           </h2>
           <p className="section-subtitle text-center">
             Our platform leverages blockchain technology to create a more efficient, 

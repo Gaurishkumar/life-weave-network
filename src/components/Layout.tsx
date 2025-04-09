@@ -27,7 +27,7 @@ const Layout = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
             <div className="h-10 w-10 rounded-full bg-gradient-spectrum animate-pulse-glow"></div>
-            <span className="text-xl font-bold text-gradient">SPECTRUM</span>
+            <span className="text-xl font-bold text-gradient">ChainMed</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -97,7 +97,7 @@ const Layout = () => {
       <footer className="glass-morphism py-8 text-center">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-sm text-gray-600 dark:text-gray-300">
-            © {new Date().getFullYear()} SPECTRUM - Decentralized Organ Donor-Recipient Matching Platform
+            © {new Date().getFullYear()} ChainMed - Decentralized Organ Donor-Recipient Matching Platform
           </p>
           <div className="mt-4 flex justify-center space-x-6">
             <Link to="/about" className="text-sm hover:text-spectrum-purple transition-colors">
