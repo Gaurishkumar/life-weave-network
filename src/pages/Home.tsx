@@ -52,18 +52,19 @@ const Home = () => {
               <HeartPulse className="w-full h-full text-spectrum-pink animate-pulse" strokeWidth={1.5} />
             </motion.div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-gradient">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
+                className="text-gray-800 dark:text-white"
               >
-                Save Lives With 
-              </motion.span>{" "}
+                Save Lives With{" "}
+              </motion.span>
               <motion.span 
-                className="relative"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                className="relative text-gradient"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
                 <span className="relative z-10">ChainMed</span>
