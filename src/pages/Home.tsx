@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div className="relative overflow-hidden">
-      {/* Hero Section with Enhanced Animated Background */}
+      {/* Hero Section with Spline 3D Animations */}
       <HeroSection scrollToFeatures={scrollToFeatures} />
 
       {/* Stats Section */}
@@ -37,7 +37,7 @@ const Home = () => {
       {/* Process Section */}
       <ProcessSection processInView={processInView} processRef={processRef} />
       
-      {/* CTA Section */}
+      {/* CTA Section with Spline 3D Animations */}
       <CtaSection />
     </div>
   );

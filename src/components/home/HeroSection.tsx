@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowDownCircle, HeartPulse } from "lucide-react";
 import ParticleBackground from "../ParticleBackground";
 import MedicalAnimations from "../MedicalAnimations";
+import SplineAnimation from "../SplineAnimation";
 
 interface HeroSectionProps {
   scrollToFeatures: () => void;
@@ -15,6 +16,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollToFeatures }) => {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <ParticleBackground />
       <MedicalAnimations />
+      
+      {/* Spline 3D Animation - Medical Scene */}
+      <div className="absolute inset-0 z-0 opacity-80 pointer-events-none">
+        <SplineAnimation 
+          splineUrl="https://prod.spline.design/6PCD7WsZv9IJH3gN/scene.splinecode" 
+          className="w-full h-full"
+        />
+      </div>
       
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
         <motion.div

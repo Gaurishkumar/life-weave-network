@@ -1,13 +1,21 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
+import SplineAnimation from "../SplineAnimation";
 
 const CtaSection: React.FC = () => {
   return (
-    <section className="py-20 px-6 bg-gradient-to-r from-spectrum-blue/10 to-spectrum-purple/10">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="py-20 px-6 bg-gradient-to-r from-spectrum-blue/10 to-spectrum-purple/10 relative overflow-hidden">
+      {/* Spline 3D Animation - Floating Hearts/Organs */}
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+        <SplineAnimation 
+          splineUrl="https://prod.spline.design/LE2OcKqQ95dKLFvr/scene.splinecode" 
+          className="w-full h-full"
+        />
+      </div>
+      
+      <div className="max-w-6xl mx-auto text-center relative z-10">
         <motion.div
           className="relative inline-block mb-8"
           initial={{ scale: 0.8, opacity: 0 }}
